@@ -1,0 +1,4 @@
+
+Unreleased
+
+- New icon (🙏SaltQueen)

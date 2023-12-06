@@ -39,7 +39,8 @@ fun main() = application {
         state = rememberWindowState(
             position = WindowPosition(Alignment.Center),
             size = DpSize.Unspecified,
-        )
+        ),
+        icon = AppIcons.Rat
     ) {
         EphemeralLaboratoriesTheme {
             Surface(
