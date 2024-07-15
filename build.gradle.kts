@@ -1,22 +1,22 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    kotlin("multiplatform")
-    id("org.jetbrains.compose")
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.compose.compiler)
 }
 
 group = "garden.ephemeral"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    google()
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 kotlin {
     jvm {
-        jvmToolchain(11)
         withJava()
     }
     sourceSets {
@@ -24,6 +24,8 @@ kotlin {
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(compose.materialIconsExtended)
+
+                implementation(libs.barber)
             }
         }
         val jvmTest by getting
